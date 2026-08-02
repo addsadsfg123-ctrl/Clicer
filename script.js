@@ -1,7 +1,8 @@
 const heart = document.getElementById("heart");
 const complimentBox = document.getElementById("compliment");
 const counter = document.getElementById("count");
-
+const ending = document.getElementById("ending");
+const restart = document.getElementById("restart");
 
 let opened = JSON.parse(localStorage.getItem("opened")) || [];
 let achievements = JSON.parse(localStorage.getItem("achievements")) || [];
@@ -94,8 +95,16 @@ let unused = pool.filter(
     complimentBox.textContent = random;
 
 
-    updateCounter();
+updateCounter();
+
 checkAchievements();
+
+
+if(opened.length >= 180){
+
+    showEnding();
+
+}
 
 });
 
@@ -218,3 +227,64 @@ function showAchievement(text){
 
 }
 }
+function showEnding(){
+
+    ending.style.display = "flex";
+
+    createFireworks();
+
+}function createFireworks(){
+
+    for(let i = 0; i < 80; i++){
+
+        let heart = document.createElement("div");
+
+        heart.className = "fire-heart";
+
+        heart.innerHTML = "❤️";
+
+
+        heart.style.left =
+        Math.random() * 100 + "vw";
+
+
+        heart.style.top =
+        Math.random() * 100 + "vh";
+
+
+        document.body.appendChild(heart);
+
+
+        setTimeout(()=>{
+
+            heart.remove();
+
+        },3000);
+
+    }
+
+}
+restart.addEventListener("click",()=>{
+
+
+    localStorage.removeItem("opened");
+
+    localStorage.removeItem("achievements");
+
+
+    opened = [];
+
+    achievements = [];
+
+
+    ending.style.display = "none";
+
+
+    updateCounter();
+
+
+    complimentBox.textContent =
+    "Нажми на сердце ✨";
+
+
+});
