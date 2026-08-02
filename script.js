@@ -42,25 +42,40 @@ heart.addEventListener("click",()=>{
     createHeart();
 
 
-    let available = [
-        ...compliments,
-        ...rareCompliments
-    ];
+    let pool;
 
 
-    let unused = available.filter(
-        (item)=> !opened.includes(item)
-    );
+let chance = Math.random();
+
+
+if(chance < 0.15 && rareCompliments.length > 0){
+
+    pool = rareCompliments;
+
+} else {
+
+    pool = compliments;
+
+}
+
+
+let unused = pool.filter(
+    (item)=> !opened.includes(item)
+);
 
 
     if(unused.length === 0){
 
-        complimentBox.textContent =
-        "Диана открыла все 180 комплиментов ❤️";
+    let otherPool = pool === compliments 
+    ? rareCompliments 
+    : compliments;
 
-        return;
 
-    }
+    unused = otherPool.filter(
+        (item)=> !opened.includes(item)
+    );
+
+}
 
 
     let random =
