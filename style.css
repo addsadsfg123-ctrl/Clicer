@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8d7e8;
+    font-family: "Courier New", monospace;
+    overflow: hidden;
+}
+
+.game {
+    text-align: center;
+    width: 90%;
+    max-width: 420px;
+    background: #fff0f7;
+    border: 5px solid #222;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 8px 8px 0 #222;
+    image-rendering: pixelated;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #d63384;
+    text-shadow: 2px 2px #fff;
+}
+
+.counter {
+    font-size: 18px;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+
+#heart {
+    width: 120px;
+    height: 120px;
+    font-size: 60px;
+    border: 4px solid #222;
+    background: #ff8fb8;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: 0.15s;
+    box-shadow: 5px 5px 0 #222;
+}
+
+
+#heart:active {
+    transform: translate(5px,5px);
+    box-shadow: none;
+}
+
+
+#compliment {
+    margin-top: 30px;
+    min-height: 70px;
+    padding: 15px;
+    font-size: 18px;
+    color: #222;
+    background: white;
+    border: 3px dashed #d63384;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* сердечки */
+.pixel-heart {
+    position: absolute;
+    font-size: 25px;
+    animation: fly 2s linear forwards;
+    pointer-events: none;
+}
+
+
+@keyframes fly {
+
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-250px) scale(1.5);
+        opacity: 0;
+    }
+
+}
