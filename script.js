@@ -115,3 +115,15 @@ heart.addEventListener("click",()=>{
 
 
 updateCounter();
+function resetGame(){
+
+    localStorage.clear();
+
+    opened = [];
+
+    updateCounter();
+
+    complimentBox.textContent =
+    "Прогресс сброшен ❤️";
+
+}
