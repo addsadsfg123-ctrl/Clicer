@@ -40,15 +40,28 @@ h1 {
 
 
 #heart {
+
     width: 120px;
     height: 120px;
-    font-size: 60px;
+
     border: 4px solid #222;
+
     background: #ff8fb8;
+
     cursor: pointer;
+
     border-radius: 20px;
+
     transition: 0.15s;
+
     box-shadow: 5px 5px 0 #222;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
 }
 
 
@@ -341,5 +354,54 @@ h1 {
         font-size: 14px;
 
     }
+
+}
+.pixel-heart-button {
+
+    width: 50px;
+
+    height: 50px;
+
+    background: #d63384;
+
+    position: relative;
+
+    transform: rotate(-45deg);
+
+    image-rendering: pixelated;
+
+}
+
+
+.pixel-heart-button::before,
+.pixel-heart-button::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 50px;
+
+    height: 50px;
+
+    background: #d63384;
+
+}
+
+
+.pixel-heart-button::before {
+
+    top: -25px;
+
+    left: 0;
+
+}
+
+
+.pixel-heart-button::after {
+
+    left: 25px;
+
+    top: 0;
 
 }
