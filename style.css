@@ -144,3 +144,202 @@ h1 {
     }
 
 }
+/* ФИНАЛЬНЫЙ ЭКРАН */
+
+#ending {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.8);
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 999;
+
+}
+
+
+.ending-box {
+
+    width: 100%;
+
+    max-width: 350px;
+
+    background: #fff0f7;
+
+    border: 5px solid #222;
+
+    border-radius: 15px;
+
+    padding: 25px 18px;
+
+    text-align: center;
+
+    box-shadow: 8px 8px 0 #222;
+
+    font-family: "Courier New", monospace;
+
+    image-rendering: pixelated;
+
+}
+
+
+.ending-box h2 {
+
+    margin: 0 0 15px;
+
+    font-size: 22px;
+
+    color: #d63384;
+
+    line-height: 1.3;
+
+}
+
+
+.ending-box p {
+
+    font-size: 16px;
+
+    line-height: 1.5;
+
+    color: #222;
+
+}
+
+
+#credits {
+
+    margin-top: 20px;
+
+    font-size: 14px;
+
+    color: #555;
+
+}
+
+
+#restart {
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 14px;
+
+    border: 4px solid #222;
+
+    background: #ff8fb8;
+
+    border-radius: 10px;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    box-shadow: 4px 4px 0 #222;
+
+}
+
+
+#restart:active {
+
+    transform: translate(4px,4px);
+
+    box-shadow: none;
+
+}
+
+
+/* сердечки финала */
+
+.fire-heart {
+
+    position: fixed;
+
+    font-size: 25px;
+
+    pointer-events: none;
+
+    z-index: 1000;
+
+    animation: boom 3s forwards;
+
+}
+
+
+@keyframes boom {
+
+    0% {
+
+        transform: scale(0);
+
+        opacity: 1;
+
+    }
+
+
+    40% {
+
+        transform: scale(2);
+
+    }
+
+
+    100% {
+
+        transform:
+        translateY(-200px)
+        rotate(360deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* маленькие телефоны */
+
+@media(max-width:400px){
+
+    .game {
+
+        width: 95%;
+
+        padding: 18px;
+
+    }
+
+
+    .ending-box {
+
+        padding: 20px 15px;
+
+    }
+
+
+    .ending-box h2 {
+
+        font-size: 19px;
+
+    }
+
+
+    .ending-box p {
+
+        font-size: 14px;
+
+    }
+
+}
