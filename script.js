@@ -4,7 +4,7 @@ const counter = document.getElementById("count");
 
 
 let opened = JSON.parse(localStorage.getItem("opened")) || [];
-
+let achievements = JSON.parse(localStorage.getItem("achievements")) || [];
 
 
 
@@ -95,6 +95,7 @@ let unused = pool.filter(
 
 
     updateCounter();
+checkAchievements();
 
 });
 
@@ -112,4 +113,108 @@ function resetGame(){
     complimentBox.textContent =
     "Прогресс сброшен ❤️";
 
+}
+function checkAchievements(){
+
+    let count = opened.length;
+
+
+    const list = [
+
+        {
+            id: "first",
+            count: 1,
+            text: "🍬 Первый сладкий"
+        },
+
+        {
+            id: "ten",
+            count: 10,
+            text: "💕 Первые шаги"
+        },
+
+        {
+            id: "thirty",
+            count: 30,
+            text: "🌸 Уже нравится"
+        },
+
+        {
+            id: "fifty",
+            count: 50,
+            text: "✨ Полпути к улыбке"
+        },
+
+        {
+            id: "trend",
+            count: 67,
+            text: "🔥 В тренде"
+        },
+
+        {
+            id: "repeat",
+            count: 69,
+            text: "🔁 Надо повторить"
+        },
+
+        {
+            id: "hundred",
+            count: 100,
+            text: "💖 Коллекционер тепла"
+        },
+
+        {
+            id: "onefifty",
+            count: 150,
+            text: "🌟 Почти легенда"
+        },
+
+        {
+            id: "finish",
+            count: 180,
+            text: "👑 Пройдено"
+        }
+
+    ];
+
+
+    list.forEach(item => {
+
+        if(
+            count >= item.count &&
+            !achievements.includes(item.id)
+        ){
+
+            achievements.push(item.id);
+
+            localStorage.setItem(
+                "achievements",
+                JSON.stringify(achievements)
+            );
+
+
+            showAchievement(item.text);
+
+        }
+
+    });
+function showAchievement(text){
+
+    let box = document.createElement("div");
+
+    box.className = "achievement-popup";
+
+    box.textContent = text;
+
+
+    document.body.appendChild(box);
+
+
+    setTimeout(()=>{
+
+        box.remove();
+
+    },3000);
+
+}
 }
